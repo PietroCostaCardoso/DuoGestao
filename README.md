@@ -55,4 +55,12 @@ The application was built using **Vanilla JavaScript (ES6+)**, following the **M
 * **LocalStorage API**
 
 ---
-Developed  by **Pietro costa Cardoso **
+## 👤 Autor
+
+Desenvolvido com dedicação por **Pietro Costa Cardoso**.  
+Se este projeto te ajudou, considere dar uma ⭐ no repositório!
+
+Pietro Costa Cardoso. Todos os direitos reservados sob a Licença MIT.
+
+
+
