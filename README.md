@@ -53,6 +53,16 @@ The application was built using **Vanilla JavaScript (ES6+)**, following the **M
 * **HTML5 / CSS3**
 * **JavaScript (ES6+)**
 * **LocalStorage API**
+---
+## Visual do projeto/ ScreenShots
+<div align="center">
+ <img src= "https://github.com/user-attachments/assets/54094a42-ca52-4a6c-b162-57b0cbe767c8" width="45%" />
+  <img src= "https://github.com/user-attachments/assets/0085f4c0-5ef4-4311-bae9-97ad9aa04748" width="45%" />
+  <img src= "https://github.com/user-attachments/assets/9939d574-0091-4289-972d-d1cfc05380ae" width="45%" />
+ <img src= "https://github.com/user-attachments/assets/f5b8ffc2-0b32-4693-84cb-644caee08c46" width="45%" />
+
+</div>
+
 
 ---
 ## 👤 Autor
