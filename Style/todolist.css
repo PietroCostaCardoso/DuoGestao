@@ -1,0 +1,401 @@
+/* 
+ * @author: Pietro Costa Cardoso
+ * @link: https://github.com/PietroCostaCardoso
+ * Copyright (c) 2026. Todos os direitos reservados.
+ * Este código está licenciado sob a MIT License.
+ * O plágio ou remoção deste cabeçalho é estritamente proibido.
+ */
+:root {
+    --primary-color: #726a95;
+    --primary-dark: #4b3d8a;
+    --secondary-color: #f1c668;
+    --secondary-hover: #f5ddaa;
+    --bg-color: #f7f7f7;
+    --text-color: #4d4d4d;
+    --danger-color: #c70039;
+    --success-color: #28a745;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+}
+
+body, html {
+    height: 100%;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.todo-list__app {
+   background-color: var(--bg-color);
+   border-radius: 10px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   margin: 0.5em auto 5em;
+   overflow: hidden; 
+}
+
+.todo-add-item__container {
+    background-color: var(--primary-color);
+    padding: 1.5em 2em;
+}
+
+.todo-add-item {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.inputItem {
+    padding: 0 1em;
+    outline: 0; 
+    flex-grow: 1;
+    border-radius: 3px;
+    border: 0;
+}
+
+.inputItem::placeholder {
+    color: #a8a8a8;
+}
+
+input[type="submit"] {
+    border: 0;
+    background-color: var(--secondary-color);
+    padding: 1em 3em;
+    margin-left: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--secondary-hover);
+}
+
+/* --- List --- */
+.todo-list__container {  
+    padding: 1em 2em 2em 2em;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    column-gap: .8em;
+    align-items: center;
+    margin-bottom: 1em;
+    padding: .8em 2em;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    animation: slideIn 0.3s ease forwards;
+    position: relative;
+    background-color: #fff;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.todo-item:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Controls e Filters --- */
+.todo-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    color: var(--primary-dark);
+    background-color: rgba(114, 106, 149, 0.1);
+}
+
+.clear-btn {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #777;
+    text-decoration: underline;
+}
+
+/* --- ação dos itens --- */
+.button-check {
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: center;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: .2em;
+    border: 2px solid var(--primary-color);
+    position: relative;
+    outline: 0;
+    background: 0 0;
+}
+
+.fa-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--success-color);
+}
+
+.fa-check.displayNone {
+    display: none;
+}
+
+.task-name {
+    grid-column: 2/3;
+    background-color: #f2f2f2;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    transition: color 0.3s;
+    border-radius: 3px;
+}
+
+.todo-item.completed .task-name {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.fa-edit,
+.fa-trash-alt {
+    outline: 0;
+    border: 0;
+    background: 0 0;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.2em; 
+    transition: transform 0.2s, color 0.2s;
+}
+
+.fa-edit:hover,
+.fa-trash-alt:hover {
+    transform: scale(1.2);
+}
+
+.fa-edit {
+    grid-column: 3/4;   
+    color: var(--primary-color);
+}
+
+.fa-edit:hover {
+    color: #1a0577;
+}
+
+.fa-trash-alt {
+    grid-column: 4/-1;
+    color: #868686;
+}
+
+.fa-trash-alt:hover {
+    color: var(--danger-color);
+}
+
+/* --- Container --- */
+.editContainer {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    background-color: rgb(225, 208, 252);
+    padding: 1em;
+    border-radius: .4em;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+    box-sizing: border-box;
+}
+
+.editContainer .editInput {
+    background-color: transparent;
+    border: 2px solid var(--primary-dark);
+    border-radius: .2em;
+    padding: .5em 1em;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.editContainer .editInput:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.editContainer .editButton,
+.editContainer .cancelButton {
+    border: 0;
+    outline: 0;
+    padding: .7em 2em;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+    color: seashell;
+}
+
+.editContainer .editButton {
+    background-color: var(--primary-dark);
+    margin-right: 5px;
+}
+
+.editContainer .cancelButton {
+    background-color: #8a3d3d;
+}
+
+.editContainer .editButton:hover {
+    background-color: #8478b9;
+}
+
+.editContainer .cancelButton:hover {
+    background-color: #6f3131;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 600px) {
+    .todo-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .todo-list__container {
+        padding: 1em;
+    }
+
+    .todo-item {
+        grid-template-columns: auto 1fr auto auto;
+        column-gap: 10px;
+        padding: 1em 0.5em;
+    }
+
+    .task-name {
+        font-size: 1rem;
+        padding: 0.5em;
+    }
+
+    .todo-add-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input[type="submit"] {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .editContainer {
+        width: 95%;
+        left: 50%;
+        flex-direction: column;
+        height: auto;
+        padding: 1em;
+        gap: 10px;
+    }
+}
+
+.todo-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    color: #999;
+    font-style: italic;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+/* --- Navbar  --- */
+.navbar {
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 1rem 2rem;
+   background: linear-gradient(135deg, #0056b3, #007bff);
+}
+
+.navbar .navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar .navbar-brand:hover img {
+    transform: scale(1.1);
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.navbar-nav {
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    position: relative;
+    padding: .5rem 1rem !important;
+    color: rgba(255, 255, 255, .9) !important;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color); 
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-item.active .nav-link::after {
+    width: 70%;
+}
+
+.navbar .nav-item.active .nav-link {
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #fff !important;
+}

@@ -1,0 +1,97 @@
+/* 
+ * @author: Pietro Costa Cardoso
+ * @link: https://github.com/PietroCostaCardoso
+ * Copyright (c) 2026. Todos os direitos reservados.
+ * Este código está licenciado sob a MIT License.
+ * O plágio ou remoção deste cabeçalho é estritamente proibido.
+ */
+:root {
+    --primary-color: #007bff;
+    --danger-color: #dc3545; 
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --row-hover-bg: #e9ecef;
+    --navbar-accent-color: #ffc107;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.table-responsive {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: .25rem;
+}
+
+.table tbody tr:hover {
+    background-color: var(--row-hover-bg);
+}
+
+.table .btn-danger {
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- Navbar --- */
+.navbar {
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #0056b3, #007bff);
+}
+
+.navbar .navbar-brand img {
+    transition: transform 0.3s ease;
+}
+.navbar .navbar-brand:hover img {
+    transform: scale(1.1);
+}
+
+.navbar-collapse {
+    justify-content: center; 
+}
+
+.navbar-nav {
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    position: relative;
+    padding: .5rem 1rem !important;
+    color: rgba(255, 255, 255, .9) !important; 
+    transition: color 0.3s ease; 
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--navbar-accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-item.active .nav-link::after {
+    width: 70%;
+}
+
+.navbar .nav-item.active .nav-link {
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #fff !important;
+}
+/* ---  Responsividade--- */
+@media (max-width: 768px) {
+    .row > [class*="col-"] {
+        margin-bottom: 15px;
+    }
+}
