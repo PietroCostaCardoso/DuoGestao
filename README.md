@@ -3,7 +3,7 @@
 ![Licença](https://img.shields.io/badge/Licença-MIT-yellow.svg?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Original%20Repo-green?style=flat-square)
 
-> *Aviso:* Este é o repositório original do projeto DuoGestão. Se você encontrar este código em outro perfil sem os devidos créditos, ele foi plagiado.
+> *Aviso:* Este é o repositório original do projeto DuoGestão. Se você encontrar este código em outro perfil sem os devidos créditos, ele foi plagiado.........
 ---
 
 [🇧🇷 Português](#-português) | [🇺🇸 English](#-english)
