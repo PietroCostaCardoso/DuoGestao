@@ -3,7 +3,7 @@
  * @link: https://github.com/PietroCostaCardoso
  * Copyright (c) 2026. Todos os direitos reservados.
  * Este código está licenciado sob a MIT License.
- * O plágio ou remoção deste cabeçalho é estritamente proibido.
+ * O plágio ou remoção deste cabeçalho é estritamente proibido........
  */
 const FormatUtils = {
     currency(value) {
