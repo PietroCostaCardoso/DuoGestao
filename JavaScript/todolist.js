@@ -85,7 +85,7 @@ class NotificationSystem {
 
         toast.innerHTML = `<span>${message}</span><i class="fas fa-times" style="cursor:pointer"></i>`;
         
-        // Close button
+        
         toast.querySelector('i').onclick = () => this._remove(toast);
 
         this.container.appendChild(toast);
